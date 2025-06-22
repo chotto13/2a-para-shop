@@ -1,0 +1,327 @@
+/* ---------------------------------------------------------
+   0. DESIGN TOKENS — tweak these and the whole theme shifts!
+---------------------------------------------------------- */
+:root {
+  /* Brand */
+  --clr-primary: #00aeef;
+  --clr-primary-dark: #0080b4;
+  --clr-secondary: #6dbe45;
+  --clr-bg: #f4f7fb;
+
+  /* Neutrals */
+  --clr-text: #202124;
+  --clr-muted: #6f737b;
+  --clr-light: #ffffff;
+
+  /* Layout */
+  --radius-sm: 8px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.12);
+  --max-w: 1200px;
+}
+
+/* ---------------------------------------------------------
+   1. RESET & GLOBAL STYLES
+---------------------------------------------------------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Manrope",system-ui,sans-serif;
+  background:var(--clr-bg);
+  color:var(--clr-text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:"Playfair Display",serif;
+  font-weight:700;
+  line-height:1.25;
+}
+
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{width:min(92%,var(--max-w));margin-inline:auto}
+
+/* ---------------------------------------------------------
+   2. BUTTONS
+---------------------------------------------------------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding:.85rem 1.75rem;
+  border-radius:var(--radius-sm);
+  font-weight:600;
+  transition:all .25s ease;
+  cursor:pointer;
+}
+.btn-primary{
+  background:var(--clr-primary);
+  color:#fff;
+}
+.btn-primary:hover{
+  box-shadow:var(--shadow-sm);
+  background:var(--clr-primary-dark);
+}
+.btn-glass{
+  background:rgba(255,255,255,.25);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.4);
+  backdrop-filter:blur(6px);
+}
+
+/* ---------------------------------------------------------
+   3. HEADER
+---------------------------------------------------------- */
+.main-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.8);
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+.header-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.85rem 0;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-size:1.35rem;
+  font-weight:700;
+  color:var(--clr-primary-dark);
+}
+.logo img{width:54px;height:54px;object-fit:contain}
+
+.main-nav ul{
+  list-style:none;
+  display:flex;
+  gap:1.65rem;
+}
+.main-nav a{
+  position:relative;
+  font-weight:500;
+  color:var(--clr-text);
+}
+.main-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:100%;
+  height:2px;
+  background:var(--clr-primary);
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform .25s ease;
+}
+.main-nav a:hover::after{transform:scaleX(1);transform-origin:left}
+
+.header-actions a{
+  font-size:1.2rem;
+  color:var(--clr-text);
+  transition:color .2s ease;
+}
+.header-actions a:not(:first-child){margin-left:1rem}
+.header-actions a:hover{color:var(--clr-primary)}
+
+.hamburger{display:none;background:none;border:none;font-size:1.4rem}
+
+/* ---------------------------------------------------------
+   4. HERO SECTION
+---------------------------------------------------------- */
+.hero{
+  position:relative;
+  isolation:isolate;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  min-height:65vh;
+  padding:4rem 1rem;
+  color:#fff;
+  overflow:hidden;
+  /* Gradient background */
+  background:linear-gradient(120deg,var(--clr-primary) 0%,var(--clr-secondary) 100%);
+}
+/* decorative bubbles */
+.hero::before,.hero::after{
+  --size:420px;
+  content:"";
+  position:absolute;
+  width:var(--size);
+  height:var(--size);
+  background:rgba(255,255,255,.1);
+  border-radius:50%;
+  filter:blur(80px);
+  z-index:-1;
+  animation:bubble 20s linear infinite alternate;
+}
+.hero::before{top:-20%;left:-15%}
+.hero::after{bottom:-20%;right:-15%}
+@keyframes bubble{to{transform:translateY(-60px)}}
+
+.hero h1{font-size:clamp(2.3rem,5vw,3.5rem);margin-bottom:1rem}
+.hero p{max-width:32rem;margin-inline:auto;margin-bottom:2rem}
+
+/* ---------------------------------------------------------
+   5. PRODUCTS SECTION
+---------------------------------------------------------- */
+.products-section{padding:4rem 0}
+.section-title{
+  text-align:center;
+  margin-bottom:3rem;
+}
+.section-title h2{font-size:clamp(1.8rem,4vw,2.4rem)}
+.section-title p{color:var(--clr-muted);max-width:420px;margin-inline:auto;margin-top:.5rem}
+
+.product-grid{
+  display:grid;
+  gap:2.4rem;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+
+.product-card{
+  background:var(--clr-light);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:transform .25s ease,box-shadow .25s ease;
+  display:flex;
+  flex-direction:column;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+}
+.product-image{
+  position:relative;
+  aspect-ratio:1/1;
+  overflow:hidden;
+}
+.product-image img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s ease;
+}
+.product-card:hover .product-image img{transform:scale(1.07)}
+
+.product-info{
+  padding:1.25rem 1rem 1.75rem;
+  text-align:center;
+}
+.product-info .brand{
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--clr-muted);
+}
+.product-info h3{
+  font-size:1.05rem;
+  margin:.45rem 0 .75rem;
+  line-height:1.35;
+  height:2.7rem; /* equal height */
+  overflow:hidden;
+}
+.product-price{
+  font-weight:700;
+  font-size:1.1rem;
+  margin-bottom:1.2rem;
+}
+.product-card .btn-primary{width:100%}
+
+/* ---------------------------------------------------------
+   6. FOOTER
+---------------------------------------------------------- */
+.site-footer{
+  background:#0f2537;
+  color:#c9d3df;
+  padding:4rem 0 2.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.site-footer::before{
+  content:"";
+  position:absolute;
+  top:-20%;
+  right:-10%;
+  width:380px;height:380px;
+  backdrop-filter:blur(70px);
+  background:radial-gradient(circle at center,rgba(0,174,239,.3) 0%,rgba(0,174,239,0) 70%);
+  z-index:-1;
+}
+.footer-grid{
+  display:grid;
+  gap:2.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.footer-col h4{
+  color:#fff;
+  margin-bottom:1rem;
+}
+.footer-col p{color:#abb5c0}
+.footer-col ul{list-style:none;display:grid;gap:.65rem}
+.footer-col a{color:#c9d3df;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.social-icons a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;height:38px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  margin-right:.55rem;
+  font-size:.95rem;
+  transition:all .25s ease;
+}
+.social-icons a:hover{
+  background:var(--clr-primary);
+  border-color:transparent;
+  color:#fff;
+  transform:translateY(-2px);
+}
+.footer-bottom{
+  text-align:center;
+  margin-top:3rem;
+  font-size:.85rem;
+  color:#728495;
+}
+
+/* ---------------------------------------------------------
+   7. RESPONSIVE NAVIGATION
+---------------------------------------------------------- */
+@media(max-width:860px){
+  .main-nav{display:none}   /* hide inline menu */
+  .hamburger{display:block;color:var(--clr-text)}
+}
+
+@media(max-width:480px){
+  .hero{min-height:60vh;padding:3rem 1rem}
+  .product-grid{gap:1.8rem}
+}
+/* Rotate hamburger into X when open */
+.hamburger.active i { transform: rotate(90deg); transition: transform .25s }
+
+/* Slide-in panel (already defined). Make it full-screen for tiny phones */
+@media (max-width: 480px) {
+  .main-nav { inset: 0 0 0 30%; }
+}
+
+/* Cart badge */
+.cart-badge{
+  position:absolute;
+  top:-6px;
+  right:-10px;
+  background:var(--clr-secondary);
+  color:#fff;
+  font-size:.65rem;
+  padding:2px 6px;
+  border-radius:50%;
+  font-weight:700;
+}
+.header-actions { position:relative }   /* ensure badge sits correctly */

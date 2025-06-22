@@ -110,3 +110,15 @@ document.addEventListener('click', e => {
    6. INIT
 -------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', loadProducts);
+/* ---------- Simple slider ---------- */
+const slides = document.querySelectorAll('.hero-slider .slide');
+let idx = 0;
+document.querySelector('.slide-btn.next')?.addEventListener('click', () => changeSlide(1));
+document.querySelector('.slide-btn.prev')?.addEventListener('click', () => changeSlide(-1));
+
+function changeSlide(dir){
+  slides[idx].classList.remove('active');
+  idx = (idx + dir + slides.length) % slides.length;
+  slides[idx].classList.add('active');
+}
+setInterval(()=>changeSlide(1), 6000);  // auto-play كل 6 ثوان

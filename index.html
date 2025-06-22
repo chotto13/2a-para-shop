@@ -1,170 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2A PARA - Parapharmacie en Ligne au Maroc</title>
-    
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>2A PARA – Parapharmacie en ligne</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
-    <!-- ======================= Header ======================= -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">
-                    <!-- The new logo image -->
-                    <img src="logo.png" alt="2A PARA Logo">
-                    <!-- The store name -->
-                    <span>2A PARA</span>
-                </a>
-                <button class="hamburger" aria-label="Ouvrir le menu">
-  <i class="fa-solid fa-bars"></i>
-</button>
+  <!-- ======================= Header ======================= -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" alt="2A PARA – Logo" />
+          <span>2A PARA</span>
+        </a>
 
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="#">Visage</a></li>
-                        <li><a href="#">Cheveux</a></li>
-                        <li><a href="#">Solaire</a></li>
-                        <li><a href="#">Marques</a></li>
-                        <li><a href="#">Promotions</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <a href="#" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
-                    <a href="#" aria-label="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-            </div>
+        <button class="hamburger" aria-label="Ouvrir le menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#">Visage</a></li>
+            <li><a href="#">Cheveux</a></li>
+            <li><a href="#">Solaire</a></li>
+            <li><a href="#">Marques</a></li>
+            <li><a href="#">Promotions</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="#" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <a href="#" aria-label="My Account"><i class="fa-regular fa-user"></i></a>
+          <a href="#" aria-label="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <main>
-        <!-- ======================= Hero Section ======================= -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>La Beauté qui vous ressemble</h1>
-                <p>Découvrez notre sélection de produits de parapharmacie, choisis avec soin pour révéler votre éclat naturel.</p>
-                <a href="#products" class="btn btn-primary">Explorer les produits</a>
-            </div>
-        </section>
+  <!-- ======================= Hero Slider ======================= -->
+  <section class="hero-slider">
+    <div class="slide active" style="background-image:url('assets/img/hero1.png')">
+      <div class="slide-inner">
+        <h1>Jusqu’à –30 % sur les Solaires</h1>
+        <a href="#products" class="btn btn-glass">Découvrir</a>
+      </div>
+    </div>
 
-        <!-- ======================= Featured Products Section ======================= -->
-        <section class="products-section" id="products">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Nos Nouveautés</h2>
-                    <p>Les derniers soins et produits tendances pour enrichir votre routine beauté.</p>
-                </div>
-                <div class="product-grid">
-                    <!-- Generic Product 1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://placehold.co/600x600/EAEAEA/333333?text=Produit" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand">Marque</span>
-                            <h3>Nom du Produit</h3>
-                            <div class="product-price">XXX MAD</div>
-                            <a href="#" class="btn btn-primary">Ajouter au Panier</a>
-                        </div>
-                    </div>
-                    <!-- Generic Product 2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                           <img src="https://placehold.co/600x600/EAEAEA/333333?text=Produit" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand">Marque</span>
-                            <h3>Nom du Produit</h3>
-                            <div class="product-price">XXX MAD</div>
-                            <a href="#" class="btn btn-primary">Ajouter au Panier</a>
-                        </div>
-                    </div>
-                    <!-- Generic Product 3 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://placehold.co/600x600/EAEAEA/333333?text=Produit" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand">Marque</span>
-                            <h3>Nom du Produit</h3>
-                            <div class="product-price">XXX MAD</div>
-                            <a href="#" class="btn btn-primary">Ajouter au Panier</a>
-                        </div>
-                    </div>
-                    <!-- Generic Product 4 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                             <img src="https://placehold.co/600x600/EAEAEA/333333?text=Produit" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand">Marque</span>
-                            <h3>Nom du Produit</h3>
-                            <div class="product-price">XXX MAD</div>
-                            <a href="#" class="btn btn-primary">Ajouter au Panier</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="slide" style="background-image:url('assets/img/hero2.png')">
+      <div class="slide-inner">
+        <h1>Livraison gratuite dès 599 DH</h1>
+        <a href="#products" class="btn btn-glass">Voir produits</a>
+      </div>
+    </div>
 
-    <!-- ======================= Footer ======================= -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>2A PARA</h4>
-                    <p>Votre destination pour la santé et la beauté au Maroc. Conseil, qualité et service client à votre écoute.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Catégories</h4>
-                    <ul>
-                        <li><a href="#">Soins du Visage</a></li>
-                        <li><a href="#">Soins Capillaires</a></li>
-                        <li><a href="#">Produits Solaires</a></li>
-                        <li><a href="#">Maman & Bébé</a></li>
-                        <li><a href="#">Compléments Alimentaires</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Aide & Information</h4>
-                    <ul>
-                        <li><a href="#">Nous Contacter</a></li>
-                        <li><a href="#">Suivi de Commande</a></li>
-                        <li><a href="#">Livraison & Retours</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Conditions Générales</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Restez Connecté</h4>
-                    <p>Suivez-nous sur les réseaux sociaux pour les dernières nouvelles et promotions.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 2A PARA. Tous droits réservés.</p>
-            </div>
+    <button class="slide-btn prev">‹</button>
+    <button class="slide-btn next">›</button>
+  </section>
+
+  <!-- ======================= Hero Tagline (statique) ======================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>La Beauté qui vous ressemble</h1>
+      <p>Découvrez notre sélection de produits de parapharmacie, choisis avec soin pour révéler votre éclat naturel.</p>
+      <a href="#products" class="btn btn-primary">Explorer les produits</a>
+    </div>
+  </section>
+
+  <!-- ======================= Products ======================= -->
+  <main>
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nos Nouveautés</h2>
+          <p>Les derniers soins et produits tendances pour enrichir votre routine beauté.</p>
         </div>
-    </footer>
-<script src="app.js" defer></script>
+        <div class="product-grid"><!-- rempli ديناميكيًا عبر app.js --></div>
+      </div>
+    </section>
+  </main>
 
+  <!-- ======================= Footer ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>2A PARA</h4>
+          <p>Votre destination pour la santé et la beauté au Maroc. Conseil, qualité et service client à votre écoute.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Catégories</h4>
+          <ul>
+            <li><a href="#">Soins du Visage</a></li>
+            <li><a href="#">Soins Capillaires</a></li>
+            <li><a href="#">Produits Solaires</a></li>
+            <li><a href="#">Maman & Bébé</a></li>
+            <li><a href="#">Compléments Alimentaires</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Aide & Infos</h4>
+          <ul>
+            <li><a href="#">Nous Contacter</a></li>
+            <li><a href="#">Suivi de Commande</a></li>
+            <li><a href="#">Livraison & Retours</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Conditions Générales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Restez Connecté</h4>
+          <p>Suivez-nous sur les réseaux sociaux pour les dernières nouvelles et promotions.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 2A PARA. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js" defer></script>
 </body>
 </html>

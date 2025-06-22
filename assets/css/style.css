@@ -325,3 +325,52 @@ a{text-decoration:none;color:inherit}
   font-weight:700;
 }
 .header-actions { position:relative }   /* ensure badge sits correctly */
+/* HERO SLIDER ----------------------------------------------------*/
+.hero-slider{
+  position:relative;
+  height:60vh;
+  overflow:hidden;
+}
+.hero-slider .slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity .8s ease;
+}
+.hero-slider .slide.active{opacity:1}
+
+/* تظليل لتحسين تباين النص */
+.hero-slider .slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+}
+
+.slide-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  place-content:center;
+  text-align:center;
+  height:100%;
+  color:#fff;
+}
+
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.45);
+  border:none;
+  color:#fff;
+  font-size:2rem;
+  width:44px;height:44px;
+  cursor:pointer;
+  transition:background .2s;
+}
+.slide-btn:hover{background:rgba(0,0,0,.65)}
+.prev{left:12px}
+.next{right:12px}

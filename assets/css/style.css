@@ -384,73 +384,158 @@ a{text-decoration:none;color:inherit}
   fill:var(--clr-primary);          /* يعتمد على لون شعارك */
 }
 /* ==== Pretty Glass Bubbles ==================================*/
-.cat-scroll{
-  display:flex;
-  gap:1.5rem;
-  overflow-x:auto;
-  padding:1.5rem 1rem 2rem;
-  scroll-snap-type:x mandatory;
-}
-.cat-scroll::-webkit-scrollbar{display:none}
+/* =========================================================
+   6. CATEGORIES SECTION (REVISED & ENHANCED)
+============================================================ */
 
-/* أساس الفقاعة */
-.cat-bubble{
-  --grad-from:#00aeef;   /* يُعاد تعريفه حسب الفئة */
-  --grad-to:  #10ce70;
-  width:132px; aspect-ratio:1/1;
-  flex:0 0 auto;
-  border-radius:50%;
-  position:relative;
-  display:grid;
-  place-content:center;
-  scroll-snap-align:center;
-  color:#fff;
-  text-align:center;
-  font-size:.8rem;
-  text-shadow:0 1px 2px rgba(0,0,0,.3);
-  cursor:pointer;
-  transition:transform .25s ease, box-shadow .25s ease;
+/* Import Google Font for the bubbles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+.cat-row {
+  padding: 3.5rem 0;
+  background-color: var(--clr-bg); /* Use the main background color for consistency */
+  text-align: center;
 }
 
-.cat-bubble::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--grad-from),var(--grad-to));
-  filter:blur(8px);
-  opacity:.8;
-  z-index:-2;
+/* --- Section Title --- */
+.cat-row h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.4rem); /* Responsive font size */
+  color: #1a3a5a; /* A deep, elegant blue */
+  margin-bottom: 3rem;
+  position: relative;
 }
 
-.cat-bubble::after{         /* طبقة زجاجية */
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(10px) saturate(1.3);
-  border:1px solid rgba(255,255,255,.25);
-  z-index:-1;
+/* Decorative underline for the title */
+.cat-row h2::after {
+  content: "";
+  width: 70px;
+  height: 3px;
+  /* A gradient that matches the brand colors */
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary));
+  border-radius: 3px;
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.cat-bubble img{
-  width:46px; height:46px;
-  margin:0 auto .35rem;
-  transition:transform .3s ease;
-  filter:invert(1);        /* يجعل الأيقونة بيضاء */
+/* --- Scrolling Container for Bubbles --- */
+.cat-scroll {
+  display: flex;
+  gap: 1.75rem; /* A bit more space between bubbles */
+  overflow-x: auto;
+  /* Adds some padding to the sides within the container */
+  padding: 1rem;
+  margin-inline: auto;
+  scroll-snap-type: x mandatory;
+  /* Hides the scrollbar for a cleaner look */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.cat-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
 
-.cat-bubble:hover{
-  transform:translateY(-8px);
-  box-shadow:0 8px 24px rgba(0,0,0,.25);
-}
-.cat-bubble:hover img{transform:scale(1.15)}
 
-/* ـــ ألوان مخصَّصة لكل فئة ـــــ */
-.cat-bubble[data-cat="beaute"]  { --grad-from:#ff7eb3; --grad-to:#ff758c; }
-.cat-bubble[data-cat="hygiene"] { --grad-from:#6dd5fa; --grad-to:#2980b9; }
-.cat-bubble[data-cat="bebe"]    { --grad-from:#fbc1cc; --grad-to:#fa99b2; }
-.cat-bubble[data-cat="bien-etre"]{ --grad-from:#a1ffce; --grad-to:#faffd1; color:#2b4a3f; text-shadow:none; }
-.cat-bubble[data-cat="marques"] { --grad-from:#d4fc79; --grad-to:#96e6a1; color:#2b4a3f; text-shadow:none; }
-.cat-bubble[data-cat="promo"]   { --grad-from:#ff5858; --grad-to:#f09819; }
+/* --- Category Bubble: Base Style --- */
+.cat-bubble {
+  /* Define custom properties for gradient and glow color */
+  --grad-1: #e0e0e0;
+  --grad-2: #c7c7c7;
+  --glow-color: rgba(0, 0, 0, 0.15);
+
+  flex: 0 0 130px; /* Prevent shrinking, set a fixed base width */
+  width: 130px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  scroll-snap-align: center;
+  cursor: pointer;
+
+  /* Typography */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #fff; /* White text for all bubbles for consistency */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Soft shadow for better readability */
+
+  /* The Gradient Background */
+  background: linear-gradient(135deg, var(--grad-1), var(--grad-2));
+  
+  /* Smooth transitions for hover effects */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* The Glow Effect using a pseudo-element */
+.cat-bubble::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: -1;
+  /* The shadow creates the "glow" */
+  box-shadow: 0 10px 25px -5px var(--glow-color);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Category Bubble: Icon Style --- */
+.cat-bubble img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+  filter: brightness(0) invert(1); /* A reliable way to make icons pure white */
+  transition: transform 0.3s ease;
+}
+
+
+/* --- Category Bubble: Hover Effects --- */
+.cat-bubble:hover {
+  transform: translateY(-10px); /* Lift the bubble higher */
+}
+
+.cat-bubble:hover::after {
+  opacity: 1; /* Make the glow more prominent on hover */
+}
+
+.cat-bubble:hover img {
+  transform: scale(1.1); /* Slightly enlarge the icon */
+}
+
+
+/* --- Custom Colors for Each Category --- */
+.cat-bubble[data-cat="beaute"] {
+  --grad-1: #ff7eb3;
+  --grad-2: #ff758c;
+  --glow-color: #ff758c;
+}
+.cat-bubble[data-cat="hygiene"] {
+  --grad-1: #6dd5fa;
+  --grad-2: #2980b9;
+  --glow-color: #2980b9;
+}
+.cat-bubble[data-cat="bebe"] {
+  --grad-1: #f8cdda;
+  --grad-2: #fa99b2;
+  --glow-color: #fa99b2;
+}
+.cat-bubble[data-cat="bien-etre"] {
+  --grad-1: #a1ffce;
+  --grad-2: #52c234;
+  --glow-color: #52c234;
+}
+.cat-bubble[data-cat="marques"] {
+  --grad-1: #d4a7f5;
+  --grad-2: #a77bf2;
+  --glow-color: #a77bf2;
+}
+.cat-bubble[data-cat="promo"] {
+  --grad-1: #ff5858;
+  --grad-2: #f09819;
+  --glow-color: #f09819;
+}

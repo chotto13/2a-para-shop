@@ -33,12 +33,12 @@
 
         <nav class="main-nav">
           <ul>
-            <li><a href="#">Visage</a></li>
-            <li><a href="#">Cheveux</a></li>
-            <li><a href="#">Solaire</a></li>
-            <li><a href="#">Marques</a></li>
-            <li><a href="#">Promotions</a></li>
-          </ul>
+                <li><a href="#categories">Catégories</a></li>
+                  <li><a href="#products">Nouveautés</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                 <li><a href="#about">À propos</a></li>
+            </ul>
+
         </nav>
 
         <div class="header-actions">
@@ -69,6 +69,48 @@
     <button class="slide-btn prev">‹</button>
     <button class="slide-btn next">›</button>
   </section>
+<!-- موجة فاصلة تحت السلايدر -->
+<div class="wave-sep">
+    <section id="categories" class="cat-row container">
+  <h2 class="reveal">Catégories principales</h2>
+
+  <div class="cat-scroll">
+    <button class="cat-bubble" data-cat="beaute">
+      <img src="assets/img/icons/face.svg" alt="">
+      <span>Beauté</span>
+    </button>
+
+    <button class="cat-bubble" data-cat="hygiene">
+      <img src="assets/img/icons/soap.svg" alt="">
+      <span>Hygiène</span>
+    </button>
+
+    <button class="cat-bubble" data-cat="bebe">
+      <img src="assets/img/icons/baby.svg" alt="">
+      <span>Bébé</span>
+    </button>
+
+    <button class="cat-bubble" data-cat="bien-etre">
+      <img src="assets/img/icons/heart.svg" alt="">
+      <span>Bien-Être</span>
+    </button>
+
+    <button class="cat-bubble" data-cat="marques">
+      <img src="assets/img/icons/brand.svg" alt="">
+      <span>Marques</span>
+    </button>
+
+    <button class="cat-bubble promo" data-cat="promo">
+      <img src="assets/img/icons/percent.svg" alt="">
+      <span>Promo %</span>
+    </button>
+  </div>
+</section>
+
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+    <path d="M0 70 Q 360 0 720 50 T 1440 20 V90H0Z" />
+  </svg>
+</div>
 
   <!-- ======================= Hero Tagline (statique) ======================= -->
   <section class="hero">
